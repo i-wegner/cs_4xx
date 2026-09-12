@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('cars-class.csv', header = None)
+df = pd.read_csv('cars-wegner.csv', header = None)
 df = df.rename(columns={0:'Colour', 1:'Model'})
 
 s_colour = df['Colour'].drop_duplicates() # create a pandas series with only the unique colours from df
@@ -43,5 +43,6 @@ for j in range(num_models):
     cube[num_colours][j] = np.sum(cube[:, j])
     print(f'{model_dict[j]} cars: {cube[num_colours][j]}')
 
-cube[num_colours][num_models] = cube[num_colours].sum() # could also sum along the last column, but this syntax is more simple
+cube[num_colours][num_models] = cube[num_colours].sum() # could also sum along the last column, but this syntax is more 
+print(cube)
 print(f'The overall total number of cars sold: {cube[num_colours][num_models]}')
