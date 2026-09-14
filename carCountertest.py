@@ -1,3 +1,7 @@
+# A1Q3 (c)
+# Program to run my synthetic data
+# Synthetic file -> cars-wegner.csv
+
 import pandas as pd
 import numpy as np
 

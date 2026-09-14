@@ -1,3 +1,6 @@
+# A1Q3 (b)
+# Generate synthetic car data
+
 import numpy as np
 from numpy import random as rand
 import pandas as pd
