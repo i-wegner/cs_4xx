@@ -17,8 +17,6 @@ part_dict = {}
 num_city = 0
 city_dict = {}
 
-arr1 = np.zeros((num_cust + 1, num_part + 1, num_city + 1), dtype = int)
-
 for row in i_cust:
     cust_dict.update({num_cust : row})
     num_cust += 1
@@ -30,3 +28,7 @@ for row in j_part:
 for row in k_city:
     city_dict.update({num_city : row})
     num_city += 1
+
+cube = np.zeros((num_cust + 1, num_part + 1, num_city + 1), dtype = int)
+
+print(cube)
