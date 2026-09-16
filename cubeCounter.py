@@ -6,6 +6,7 @@ import pandas as pd
 df = pd.read_csv('cps.csv', header = 0)
 i_cust = df['Customer'].drop_duplicates() # layer
 j_part = df['PartNum'].drop_duplicates() # row
+j_part = j_part.sort_values()
 k_city = df['City'].drop_duplicates() # column
 
 num_cust = 0
@@ -33,5 +34,3 @@ for row in k_city:
 
 cube = np.zeros((num_cust + 1, num_part + 1, num_city + 1), dtype = int)
 
-for key in part_dict:
-    print(sum([ord(c) for c in part_dict[key]]))
