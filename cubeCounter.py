@@ -13,6 +13,8 @@ cust_dict = {}
 
 num_part = 0
 part_dict = {}
+# sorted_part_dict = dict(sorted(part_dict.items(), key = lambda item:item[0]))
+
 
 num_city = 0
 city_dict = {}
@@ -31,4 +33,5 @@ for row in k_city:
 
 cube = np.zeros((num_cust + 1, num_part + 1, num_city + 1), dtype = int)
 
-print(cube)
+for key in part_dict:
+    print(sum([ord(c) for c in part_dict[key]]))
