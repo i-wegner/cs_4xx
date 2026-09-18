@@ -4,7 +4,7 @@ Total time for 10,000 records: 0.2041621208190918 seconds
 Total time for 100,000 records: 2.0616252422332764 seconds
 Total time for 1,000,000 records: 20.239871978759766 seconds
 Total time for 10,000,000 records: 206.1017289161682 seconds or 3:26.1017289161682
-Total time for 100,000,000 records: 2069.0643451213837 seconds or 34:290643451213837
+Total time for 100,000,000 records: 2069.0643451213837 seconds or 34:29.0643451213837
 
 Testing without print statements:
 Total time for 10,000 records: 0.2042250633239746 seconds
