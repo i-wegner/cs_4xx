@@ -49,10 +49,11 @@ for x in range(df.shape[0]):
 
 for i in range(I):
     for j in range(J):
-        cube[i, j, num_city] = np.sum(cube[i, j, 0:])
+        cube[i, j, num_city] = np.sum(cube[i, j, :])
     for k in range(K):
         cube[i, num_part, k] = np.sum(cube[i, :, k])
-    
 
 
-print(cube)
+for j in range(J):
+    for k in range(K):
+        cube[num_cust, j, k] = np.sum(cube[:, j, k])
