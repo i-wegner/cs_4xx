@@ -10,30 +10,26 @@ j_part = j_part.sort_values() # sort the series alphabetically/numerically
 k_city = df['City'].drop_duplicates() # column
 
 # build dictionaries for each attribute
-num_cust = 0
+I = 0
 cust_dict = {}
 for row in i_cust:
-    cust_dict.update({num_cust : row})
-    num_cust += 1
+    cust_dict.update({I : row})
+    I += 1
 
-num_part = 0
+J = 0
 part_dict = {}
 for row in j_part:
-    part_dict.update({num_part : row})
-    num_part += 1
+    part_dict.update({J : row})
+    J += 1
 
-num_city = 0
+K = 0
 city_dict = {}
 for row in k_city:
-    city_dict.update({num_city : row})
-    num_city += 1
-
-I = num_cust + 1
-J = num_part + 1
-K = num_city + 1
+    city_dict.update({K : row})
+    K += 1
 
 # instatiate 3d numpy array
-cube = np.zeros((I, J, K), dtype = int)
+cube = np.zeros((I + 1, J + 1, K + 1), dtype = int)
 
 
 for x in range(df.shape[0]):
@@ -47,22 +43,46 @@ for x in range(df.shape[0]):
 
     cube[temp_layer, temp_row, temp_column] += 1
 
+# sum marginal totals
 for i in range(I):
     for j in range(J):
-        cube[i, j, num_city] = np.sum(cube[i, j, :])
+        cube[i, j, K] = np.sum(cube[i, j, :])
     for k in range(K):
-        cube[i, num_part, k] = np.sum(cube[i, :, k])
+        cube[i, J, k] = np.sum(cube[i, :, k])
 
+# sum last layer totals
+for j in range(J + 1):
+    for k in range(K + 1):
+        cube[I, j, k] = np.sum(cube[:, j, k])
+    cube[I, J, K] = np.sum(cube[I, J, :])
 
-for j in range(J):
-    for k in range(K):
-        cube[num_cust, j, k] = np.sum(cube[:, j, k])
-
-for i in range(num_cust):
+for i in range(I):
     print(f"{cust_dict.get(i)}'s purchases by part:")
-    for row in range(num_part):
-        print(f"Part {part_dict.get(row)}: {cube[i, row, num_city]}")
+    for row in range(J):
+        print(f"Part {part_dict.get(row)}: {cube[i, row, K]}")
     print(f"\n{cust_dict.get(i)}'s purchases by city:")
-    for column in range(num_city):
-        print(f"{city_dict.get(column)}: {cube[i, num_part, column]}")
+    for column in range(K):
+        print(f"{city_dict.get(column)}: {cube[i, J, column]}")
     print('\n-------------\n')
+
+for i in range(I):
+    for j in range(J):
+        if cube[i, j, K] != 0:
+            print(f"{cust_dict.get(i)}, {part_dict.get(j)}, ANY | {cube[i, j, K]}")
+    for k in range(K):
+        if cube[i, J, k] != 0:
+            print(f"{cust_dict.get(i)}, ANY, {city_dict.get(k)} | {cube[i, J, k]}")
+    print('\n-------------\n')
+
+    if I - i == 1:
+        for j in range(J):
+            for k in range(K):
+                if cube[I, j, k] != 0:
+                    print(f"ANY, {part_dict.get(j)}, {city_dict.get(k)} | {cube[I, j, k]}")
+        print('\n-------------\n')
+        for j in range(J):
+            if cube[I, j, K] != 0:
+                print(f"ANY, {part_dict.get(j)}, ANY | {cube[I, j, K]}")
+        for k in range(K):
+            if cube[I, J, k] != 0:
+                print(f"ANY, ANY, {city_dict.get(k)} | {cube[I, J, k]}")
