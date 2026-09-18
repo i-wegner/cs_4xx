@@ -50,12 +50,13 @@ for i in range(I):
     for k in range(K):
         cube[i, J, k] = np.sum(cube[i, :, k])
 
-# sum last layer totals
+# sum last layer (total layer) totals
 for j in range(J + 1):
     for k in range(K + 1):
         cube[I, j, k] = np.sum(cube[:, j, k])
     cube[I, J, K] = np.sum(cube[I, J, :])
 
+# Print all marginal totals by customer
 for i in range(I):
     print(f"{cust_dict.get(i)}'s purchases by part:")
     for row in range(J):
@@ -65,6 +66,10 @@ for i in range(I):
         print(f"{city_dict.get(column)}: {cube[i, J, column]}")
     print('\n-------------\n')
 
+# print non-zero marginal totals in Ordered Set Representation
+# every non-zero value from the marginal total column/row for each customer
+# as well as every non-zero total from the absolute total layer, only excluding the absolute total itself
+# not printing out cube[I, J, K] because it is the absolute total, and not a marginal total
 for i in range(I):
     for j in range(J):
         if cube[i, j, K] != 0:
