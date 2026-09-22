@@ -1,6 +1,7 @@
 # CS_4xx_Assignments
 CS 4xx coding assignments
 
+## A1:
 Question 3 - Materials Referenced:
 
 Pandas Dataframe:
@@ -31,3 +32,5 @@ Question 4 - Materials Referenced:
 
 Pandas Series:
 https://pandas.pydata.org/docs/reference/api/pandas.Series.sort_values.html
+
+## A2:
