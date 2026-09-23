@@ -13,7 +13,7 @@ https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html
 Pandas Series: \
 https://pandas.pydata.org/docs/reference/api/pandas.Series.values.html
 
-Inverse Dictionary Search:
+Inverse Dictionary Search: \ 
 https://dev.to/therenegadecoder/how-to-perform-a-reverse-dictionary-lookup-in-python-generator-expressions-and-more-6nk
 https://stackoverflow.com/questions/2568673/inverse-dictionary-lookup-in-python
 
@@ -39,4 +39,4 @@ Question 1 - Materials Referenced:
 Numpy Array:
 Convert all negatives to 0: https://www.geeksforgeeks.org/python/python-replace-negative-value-with-zero-in-numpy-array/ \
 Boolean masking for to minimize loops: https://numpy.org/doc/stable/user/basics.indexing.html#boolean-array-indexing \
-np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html \
+np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html

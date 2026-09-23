@@ -2,7 +2,7 @@ import numpy as np
 from numpy import random as rand
 import pandas as pd
 
-num_rows = 20
+num_rows = 200
 rng = rand.default_rng(200514620)
 
 elevation = rng.uniform(0, 500, num_rows)
