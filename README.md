@@ -40,3 +40,4 @@ Question 1 - Materials Referenced:
 Numpy Array:
 Convert all negatives to 0: https://www.geeksforgeeks.org/python/python-replace-negative-value-with-zero-in-numpy-array/
 Boolean masking for to minimize loops: https://numpy.org/doc/stable/user/basics.indexing.html#boolean-array-indexing
+np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html

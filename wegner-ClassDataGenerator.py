@@ -1,5 +1,6 @@
 import numpy as np
 from numpy import random as rand
+import pandas as pd
 
 num_rows = 20
 rng = rand.default_rng(200514620)
@@ -37,6 +38,12 @@ def riskLevel(elevation, precipitation):
     risk_level = np.select(cond_list, choice_list, default = '')
 
     return risk_level
-
 risk_level = riskLevel(elevation, precipitation)
-print(risk_level)
+
+data = pd.DataFrame(
+    {'Elevation' : elevation,
+    'Precipitation' : precipitation,
+    'Risk Level' : risk_level}
+)
+
+data.to_csv('wegner-risk-data.csv', index = False, header = True)
