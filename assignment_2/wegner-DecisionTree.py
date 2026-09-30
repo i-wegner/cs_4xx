@@ -9,7 +9,7 @@ df = pd.read_csv('wegner-risk-data.csv', header = 0)
 X = df.iloc[:, :-1]
 y = df.iloc[:, -1]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.8, random_state = rand_state)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = rand_state)
 
 dtree1 = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = rand_state)
 dtree1.fit(X_train[['Elevation', 'Precipitation']], y_train)
