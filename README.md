@@ -36,7 +36,12 @@ https://pandas.pydata.org/docs/reference/api/pandas.Series.sort_values.html
 
 Question 1 - Materials Referenced:
 
-Numpy Array:
+Numpy Array: \
 Convert all negatives to 0: https://www.geeksforgeeks.org/python/python-replace-negative-value-with-zero-in-numpy-array/ \
 Boolean masking for to minimize loops: https://numpy.org/doc/stable/user/basics.indexing.html#boolean-array-indexing \
-np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html
+np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html \
+
+Question 2 - Materials Referenced:
+
+Confusion matrix: \
+https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html#sklearn.metrics.ConfusionMatrixDisplay.from_predictions
