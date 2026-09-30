@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import tree
+from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 
 rand_state = 200514620
 df = pd.read_csv('wegner-risk-data.csv', header = 0)
@@ -26,5 +28,8 @@ with open('wegner-first-tree.txt', 'w') as f:
     print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
     print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
 
+y_pred = dtree1.predict(X_test)
+risk_matrix = ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
 
-# Small update to see WIP
+risk_matrix.figure_.savefig('wegner-confusion-matrix.png')
+plt.show()
