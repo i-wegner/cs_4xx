@@ -1,27 +1,25 @@
-|--- Precipitation <= 130.47
-|   |--- Elevation <= 227.61
-|   |   |--- Precipitation <= 72.27
-|   |   |   |--- class: low
-|   |   |--- Precipitation >  72.27
-|   |   |   |--- Precipitation <= 84.90
-|   |   |   |   |--- Elevation <= 101.24
-|   |   |   |   |   |--- class: medium
-|   |   |   |   |--- Elevation >  101.24
-|   |   |   |   |   |--- class: low
-|   |   |   |--- Precipitation >  84.90
-|   |   |   |   |--- class: medium
-|   |--- Elevation >  227.61
-|   |   |--- class: low
-|--- Precipitation >  130.47
-|   |--- Elevation <= 121.55
-|   |   |--- Precipitation <= 139.22
-|   |   |   |--- class: medium
-|   |   |--- Precipitation >  139.22
-|   |   |   |--- class: high
-|   |--- Elevation >  121.55
+|--- Precipitation <= 94.31
+|   |--- Elevation <= 60.23
 |   |   |--- class: medium
+|   |--- Elevation >  60.23
+|   |   |--- class: low
+|--- Precipitation >  94.31
+|   |--- Elevation <= 104.55
+|   |   |--- Precipitation <= 140.67
+|   |   |   |--- class: medium
+|   |   |--- Precipitation >  140.67
+|   |   |   |--- class: high
+|   |--- Elevation >  104.55
+|   |   |--- Precipitation <= 132.41
+|   |   |   |--- Elevation <= 335.69
+|   |   |   |   |--- class: medium
+|   |   |   |--- Elevation >  335.69
+|   |   |   |   |--- class: low
+|   |   |--- Precipitation >  132.41
+|   |   |   |--- class: medium
 
-Total number of nodes: 15
-Maximum depth: 5
+Total number of nodes: 13
+Maximum depth: 4
 Minimum node size: 2
 Average impurity of leaves: 0.0
+Accuracy score: 0.86875
