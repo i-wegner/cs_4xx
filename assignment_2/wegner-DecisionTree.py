@@ -10,7 +10,7 @@ dtree1 = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = rand_
 
 dtree1.fit(train[['Elevation', 'Precipitation']], train['Risk Level'])
 
-print(f'{sum(dtree1.tree_.impurity) / dtree1.tree_.node_count}')
+print(f'{sum(dtree1.tree_.impurity) / dtree1.tree_.node_count}') # average impurity of the entire tree, not just the leaf nodes
 
 tree_text = tree.export_text(dtree1, feature_names = ['Elevation', 'Precipitation'])
 with open('wegner-first-tree.txt', 'w') as f:
@@ -19,3 +19,12 @@ with open('wegner-first-tree.txt', 'w') as f:
     print(f'Maximum depth: {dtree1.tree_.max_depth}', file = f)
     print(f'Minimum node size: {min(dtree1.tree_.n_node_samples)}', file = f)
     print(f'A{sum(dtree1.tree_.impurity) / dtree1.tree_.node_count}')
+
+
+print(dtree1.tree_.n_leaves)
+print(dtree1.tree_.feature) # returns an array with the values 0, 1, -2 where -2 represents a leaf node
+
+# traverse the tree and identify the leaf nodes
+for i in range(dtree1.tree_.node_count):
+    if dtree1.tree_.feature[i] == -2:
+        print('leaf!')
