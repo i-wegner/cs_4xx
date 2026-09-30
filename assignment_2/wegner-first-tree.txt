@@ -24,3 +24,4 @@
 Total number of nodes: 15
 Maximum depth: 5
 Minimum node size: 2
+Average impurity of leaves: 0.0
