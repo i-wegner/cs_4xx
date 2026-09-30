@@ -44,4 +44,6 @@ np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/nu
 Question 2 - Materials Referenced:
 
 Confusion matrix: \
-https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html#sklearn.metrics.ConfusionMatrixDisplay.from_predictions
+https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html#sklearn.metrics.ConfusionMatrixDisplay.from_predictions \
+Number of leaves: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier.get_n_leaves \
+

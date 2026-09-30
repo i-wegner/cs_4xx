@@ -24,7 +24,7 @@ with open('wegner-first-tree.txt', 'w') as f:
     for i in range(dtree1.tree_.node_count):
         if dtree1.tree_.feature[i] == -2:
             impurity += dtree1.tree_.impurity[i]
-    ave_leaf_impurity = impurity / dtree1.tree_.n_leaves
+    ave_leaf_impurity = impurity / dtree1.get_n_leaves()
     print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
     print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
 
