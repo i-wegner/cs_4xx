@@ -1,0 +1,26 @@
+|--- Precipitation <= 130.47
+|   |--- Elevation <= 227.61
+|   |   |--- Precipitation <= 72.27
+|   |   |   |--- class: low
+|   |   |--- Precipitation >  72.27
+|   |   |   |--- Precipitation <= 84.90
+|   |   |   |   |--- Elevation <= 101.24
+|   |   |   |   |   |--- class: medium
+|   |   |   |   |--- Elevation >  101.24
+|   |   |   |   |   |--- class: low
+|   |   |   |--- Precipitation >  84.90
+|   |   |   |   |--- class: medium
+|   |--- Elevation >  227.61
+|   |   |--- class: low
+|--- Precipitation >  130.47
+|   |--- Elevation <= 121.55
+|   |   |--- Precipitation <= 139.22
+|   |   |   |--- class: medium
+|   |   |--- Precipitation >  139.22
+|   |   |   |--- class: high
+|   |--- Elevation >  121.55
+|   |   |--- class: medium
+
+Total number of nodes: 15
+Maximum depth: 5
+Minimum node size: 2
