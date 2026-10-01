@@ -200,3 +200,79 @@ Maximum depth: 10
 Minimum node size: 1
 Average impurity of leaves: 0.0
 Accuracy score: 0.71
+|--- feature_8 <= 0.10
+|   |--- feature_9 <= 0.05
+|   |   |--- feature_6 <= 0.09
+|   |   |   |--- feature_6 <= -0.60
+|   |   |   |   |--- feature_1 <= -0.63
+|   |   |   |   |   |--- class: 4
+|   |   |   |   |--- feature_1 >  -0.63
+|   |   |   |   |   |--- class: 4
+|   |   |   |--- feature_6 >  -0.60
+|   |   |   |   |--- class: 4
+|   |   |--- feature_6 >  0.09
+|   |   |   |--- feature_9 <= -0.40
+|   |   |   |   |--- feature_6 <= 0.85
+|   |   |   |   |   |--- class: 2
+|   |   |   |   |--- feature_6 >  0.85
+|   |   |   |   |   |--- class: 2
+|   |   |   |--- feature_9 >  -0.40
+|   |   |   |   |--- class: 1
+|   |--- feature_9 >  0.05
+|   |   |--- feature_6 <= -1.11
+|   |   |   |--- feature_9 <= 1.18
+|   |   |   |   |--- class: 4
+|   |   |   |--- feature_9 >  1.18
+|   |   |   |   |--- class: 3
+|   |   |--- feature_6 >  -1.11
+|   |   |   |--- feature_9 <= 1.20
+|   |   |   |   |--- feature_4 <= 1.45
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- feature_4 >  1.45
+|   |   |   |   |   |--- class: 3
+|   |   |   |--- feature_9 >  1.20
+|   |   |   |   |--- feature_8 <= -0.63
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- feature_8 >  -0.63
+|   |   |   |   |   |--- class: 1
+|--- feature_8 >  0.10
+|   |--- feature_6 <= 0.00
+|   |   |--- feature_9 <= 0.98
+|   |   |   |--- feature_6 <= -1.50
+|   |   |   |   |--- class: 4
+|   |   |   |--- feature_6 >  -1.50
+|   |   |   |   |--- feature_5 <= -0.33
+|   |   |   |   |   |--- class: 3
+|   |   |   |   |--- feature_5 >  -0.33
+|   |   |   |   |   |--- class: 3
+|   |   |--- feature_9 >  0.98
+|   |   |   |--- feature_8 <= 1.35
+|   |   |   |   |--- feature_6 <= -0.83
+|   |   |   |   |   |--- class: 3
+|   |   |   |   |--- feature_6 >  -0.83
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- feature_8 >  1.35
+|   |   |   |   |--- class: 3
+|   |--- feature_6 >  0.00
+|   |   |--- feature_8 <= 1.47
+|   |   |   |--- feature_9 <= 0.56
+|   |   |   |   |--- class: 2
+|   |   |   |--- feature_9 >  0.56
+|   |   |   |   |--- feature_5 <= 0.87
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- feature_5 >  0.87
+|   |   |   |   |   |--- class: 0
+|   |   |--- feature_8 >  1.47
+|   |   |   |--- feature_6 <= 1.26
+|   |   |   |   |--- class: 3
+|   |   |   |--- feature_6 >  1.26
+|   |   |   |   |--- feature_9 <= -1.30
+|   |   |   |   |   |--- class: 3
+|   |   |   |   |--- feature_9 >  -1.30
+|   |   |   |   |   |--- class: 0
+
+Total number of nodes: 47
+Maximum depth: 5
+Minimum node size: 1
+Average impurity of leaves: 0.5781220484171107
+Accuracy score: 0.77

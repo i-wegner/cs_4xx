@@ -33,7 +33,7 @@ with open('wegner-tree-compare.txt', 'w') as f:
     print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
 
 tree_text7 = tree.export_text(dtree7)
-with open('wegner-tree-compare.txt', 'w') as f:
+with open('wegner-tree-compare.txt', 'a') as f:
     print(tree_text7, file = f)
     print(f'Total number of nodes: {dtree7.tree_.node_count}', file = f)
     print(f'Maximum depth: {dtree7.tree_.max_depth}', file = f)
