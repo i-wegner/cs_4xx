@@ -15,11 +15,14 @@ dtree5 = tree.DecisionTreeClassifier(criterion = 'entropy', min_impurity_decreas
 dtree6 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_leaf = 13, random_state = rand_state)
 dtree7 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_split = 0.05, random_state = rand_state)
 
+trees = [dtree1, dtree7] # list for enumerate(). Was reduced from all to two trees after observing performance
+
+print('Mean cross validation scores:')
+for i, t in enumerate(trees, start = 1):
+    print(f'Tree {i}: {cross_val_score(t, X_train, y_train).mean()}')
+
 dtree1.fit(X_train, y_train) # non-limited tree
 dtree7.fit(X_train, y_train) # best performing tree
-trees = [dtree1, dtree7]
-
-tree_text1 = tree.export_text(dtree1)
 
 with open('wegner-tree-compare.txt', 'w') as f:
     for i, t in enumerate(trees, start = 1):
