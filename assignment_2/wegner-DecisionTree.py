@@ -26,6 +26,8 @@ with open('wegner-first-tree.txt', 'w') as f:
             impurity += dtree1.tree_.impurity[i]
     ave_leaf_impurity = impurity / dtree1.get_n_leaves()
     print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
+        # Consider that the tree is unrestricted (it is split until the training data is perfectly classified),
+        # thus we end up with 0.0
     print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
 
 y_pred = dtree1.predict(X_test)
