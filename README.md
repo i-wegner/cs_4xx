@@ -49,5 +49,7 @@ Number of leaves: https://scikit-learn.org/stable/modules/generated/sklearn.tree
 
 Question 3 - Materials Referenced:
 
+Cross Validation Score: \
+Notes 03-6: Overfitting
 Enumerate(): \
 https://www.geeksforgeeks.org/python/enumerate-in-python/ \
