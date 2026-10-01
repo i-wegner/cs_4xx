@@ -12,9 +12,16 @@ dtree1 = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = rand_
 dtree1.fit(X_train, y_train)
 dtree2 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, random_state = rand_state)
 dtree2.fit(X_train, y_train)
+dtree3 = tree.DecisionTreeClassifier(criterion = 'entropy', min_samples_split = 13, random_state = rand_state)
+dtree3.fit(X_train, y_train)
+dtree4 = tree.DecisionTreeClassifier(criterion = 'entropy', min_samples_split = 0.05, random_state = rand_state)
+dtree4.fit(X_train, y_train)
+dtree5 = tree.DecisionTreeClassifier(criterion = 'entropy', min_impurity_decrease = 0.05, random_state = rand_state)
+dtree5.fit(X_train, y_train)
 
 print(dtree1.tree_.max_depth)
-print(dtree2.tree_.max_depth)
 
 # This code produces a max depth of both 10 & 11 for dtree1, why?
-
+# Q: Fitting the tree on specific attributes vs on the entire training set
+# Q: Fitting the tree before any information can be printed
+# Q: Tree has to be fit in order to 'check' any tree details (dtree1.tree_.max_depth). Why?
