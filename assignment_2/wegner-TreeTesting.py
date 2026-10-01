@@ -9,3 +9,12 @@ X, y = make_classification(n_samples = 500, n_features = 10, n_informative = 3, 
 X_train, x_test, y_train, y_test = train_test_split(X, y, test_size = .2)
 
 dtree1 = tree.DecisionTreeClassifier(criterion = 'entropy', random_state = rand_state)
+dtree1.fit(X_train, y_train)
+dtree2 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, random_state = rand_state)
+dtree2.fit(X_train, y_train)
+
+print(dtree1.tree_.max_depth)
+print(dtree2.tree_.max_depth)
+
+# This code produces a max depth of both 10 & 11 for dtree1, why?
+
