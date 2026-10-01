@@ -15,12 +15,33 @@ dtree5 = tree.DecisionTreeClassifier(criterion = 'entropy', min_impurity_decreas
 dtree6 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_leaf = 13, random_state = rand_state)
 dtree7 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_split = 0.05, random_state = rand_state)
 
-trees = [dtree1, dtree2, dtree3, dtree4, dtree5, dtree6, dtree7]
-
-print(cross_val_score(dtree2, X_train, y_train).mean())
-
-print('Cross validation scores (mean):')
-for i, t in enumerate(trees, start = 1):
-    print(f'Tree {i}: {cross_val_score(t, X_train, y_train).mean()}')
 dtree1.fit(X_train, y_train)
 dtree7.fit(X_train, y_train)
+
+tree_text1 = tree.export_text(dtree1)
+with open('wegner-tree-compare.txt', 'w') as f:
+    print(tree_text1, file = f)
+    print(f'Total number of nodes: {dtree1.tree_.node_count}', file = f)
+    print(f'Maximum depth: {dtree1.tree_.max_depth}', file = f)
+    print(f'Minimum node size: {min(dtree1.tree_.n_node_samples)}', file = f)
+    impurity = 0
+    for i in range(dtree1.tree_.node_count):
+        if dtree1.tree_.feature[i] == -2:
+            impurity += dtree1.tree_.impurity[i]
+    ave_leaf_impurity = impurity / dtree1.get_n_leaves()
+    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
+    print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
+
+tree_text7 = tree.export_text(dtree7)
+with open('wegner-tree-compare.txt', 'w') as f:
+    print(tree_text7, file = f)
+    print(f'Total number of nodes: {dtree7.tree_.node_count}', file = f)
+    print(f'Maximum depth: {dtree7.tree_.max_depth}', file = f)
+    print(f'Minimum node size: {min(dtree7.tree_.n_node_samples)}', file = f)
+    impurity = 0
+    for i in range(dtree7.tree_.node_count):
+        if dtree7.tree_.feature[i] == -2:
+            impurity += dtree7.tree_.impurity[i]
+    ave_leaf_impurity = impurity / dtree7.get_n_leaves()
+    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
+    print(f'Accuracy score: {dtree7.score(X_test, y_test)}', file = f)
