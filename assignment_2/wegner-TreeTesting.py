@@ -15,33 +15,27 @@ dtree5 = tree.DecisionTreeClassifier(criterion = 'entropy', min_impurity_decreas
 dtree6 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_leaf = 13, random_state = rand_state)
 dtree7 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_split = 0.05, random_state = rand_state)
 
-dtree1.fit(X_train, y_train)
-dtree7.fit(X_train, y_train)
+dtree1.fit(X_train, y_train) # non-limited tree
+dtree7.fit(X_train, y_train) # best performing tree
+trees = [dtree1, dtree7]
 
 tree_text1 = tree.export_text(dtree1)
-with open('wegner-tree-compare.txt', 'w') as f:
-    print(tree_text1, file = f)
-    print(f'Total number of nodes: {dtree1.tree_.node_count}', file = f)
-    print(f'Maximum depth: {dtree1.tree_.max_depth}', file = f)
-    print(f'Minimum node size: {min(dtree1.tree_.n_node_samples)}', file = f)
-    impurity = 0
-    for i in range(dtree1.tree_.node_count):
-        if dtree1.tree_.feature[i] == -2:
-            impurity += dtree1.tree_.impurity[i]
-    ave_leaf_impurity = impurity / dtree1.get_n_leaves()
-    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
-    print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
 
-tree_text7 = tree.export_text(dtree7)
-with open('wegner-tree-compare.txt', 'a') as f:
-    print(tree_text7, file = f)
-    print(f'Total number of nodes: {dtree7.tree_.node_count}', file = f)
-    print(f'Maximum depth: {dtree7.tree_.max_depth}', file = f)
-    print(f'Minimum node size: {min(dtree7.tree_.n_node_samples)}', file = f)
-    impurity = 0
-    for i in range(dtree7.tree_.node_count):
-        if dtree7.tree_.feature[i] == -2:
-            impurity += dtree7.tree_.impurity[i]
-    ave_leaf_impurity = impurity / dtree7.get_n_leaves()
-    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
-    print(f'Accuracy score: {dtree7.score(X_test, y_test)}', file = f)
+with open('wegner-tree-compare.txt', 'w') as f:
+    for i, t in enumerate(trees, start = 1):
+        print(f'=========== Tree {i} ===========\n', file = f)
+        print(tree.export_text(t), file = f)
+        #print(tree_text1, file = f)
+        print(f'Total number of nodes: {t.tree_.node_count}', file = f)
+        print(f'Maximum depth: {t.tree_.max_depth}', file = f)
+        print(f'Minimum node size: {min(t.tree_.n_node_samples)}', file = f)
+
+        impurity = 0
+        for j in range(t.tree_.node_count):
+            if t.tree_.feature[j] == -2: # -2 marks a leaf
+                impurity += t.tree_.impurity[j]
+        ave_leaf_impurity = impurity / t.get_n_leaves()
+        print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
+
+        print(f'Accuracy score: {t.score(X_test, y_test)}', file = f)
+        print('\n', file = f)

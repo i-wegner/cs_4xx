@@ -1,3 +1,5 @@
+=========== Tree 1 ===========
+
 |--- feature_8 <= 0.10
 |   |--- feature_9 <= 0.05
 |   |   |--- feature_6 <= 0.09
@@ -200,6 +202,10 @@ Maximum depth: 10
 Minimum node size: 1
 Average impurity of leaves: 0.0
 Accuracy score: 0.71
+
+
+=========== Tree 2 ===========
+
 |--- feature_8 <= 0.10
 |   |--- feature_9 <= 0.05
 |   |   |--- feature_6 <= 0.09
@@ -276,3 +282,5 @@ Maximum depth: 5
 Minimum node size: 1
 Average impurity of leaves: 0.5781220484171107
 Accuracy score: 0.77
+
+
