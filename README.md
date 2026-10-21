@@ -53,3 +53,10 @@ Cross Validation Score: \
 Notes 03-6: Overfitting
 Enumerate(): \
 https://www.geeksforgeeks.org/python/enumerate-in-python/ \
+
+## A3:
+
+Question 3 - Materials Referenced:
+
+Powerset function: \
+https://stackoverflow.com/questions/1482308/how-to-get-all-subsets-of-a-set-powerset \
