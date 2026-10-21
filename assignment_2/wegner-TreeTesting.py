@@ -15,19 +15,21 @@ dtree5 = tree.DecisionTreeClassifier(criterion = 'entropy', min_impurity_decreas
 dtree6 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_leaf = 13, random_state = rand_state)
 dtree7 = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth = 5, min_samples_split = 0.05, random_state = rand_state)
 
-trees = [dtree1, dtree7] # list for enumerate(). Was reduced from all to two trees after observing performance
+trees = [dtree1, dtree2, dtree3, dtree4, dtree5, dtree6, dtree7] # list for enumerate(). Was reduced from all to two trees after observing performance
 
 print('Mean cross validation scores:')
 for i, t in enumerate(trees, start = 1):
     print(f'Tree {i}: {cross_val_score(t, X_train, y_train).mean()}')
 
+trees_of_interest = [dtree1, dtree7]
+
 dtree1.fit(X_train, y_train) # non-limited tree
 dtree7.fit(X_train, y_train) # best performing tree
 
 with open('wegner-tree-compare.txt', 'w') as f:
-    for i, t in enumerate(trees, start = 1):
+    for i, t in enumerate(trees_of_interest, start = 1):
         print(f'=========== Tree {i} ===========\n', file = f)
-        print(tree.export_text(t), file = f)
+        #print(tree.export_text(t), file = f)
         #print(tree_text1, file = f)
         print(f'Total number of nodes: {t.tree_.node_count}', file = f)
         print(f'Maximum depth: {t.tree_.max_depth}', file = f)
