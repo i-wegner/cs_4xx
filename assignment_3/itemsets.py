@@ -16,6 +16,9 @@ table2 = {
 
 for i, itemset in enumerate(table2['Itemset']):
     items = itemset.split(',')
-    print(items)
+    print((table1[items] != 0).sum())
+
+    #support = sum(table1[items] != 0)
+
 
 #table2 = pd.DataFrame(table2)
