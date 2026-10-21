@@ -23,9 +23,11 @@ def powerset(set):
 
 def support(table1, table2):
     support_list = []
+
     for itemset in table2['Itemset']:
         supp = (table1[itemset] != 0).all(axis = 1).mean()
         support_list.append(supp)
+        
     table2['Support'] = support_list
 
 l = powerset('ABCD')
