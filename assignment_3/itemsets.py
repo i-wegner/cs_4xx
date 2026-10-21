@@ -13,12 +13,9 @@ table2 = {
     'Itemset' : ['A', 'B', 'C', 'D', 'A,B', 'A,C', 'A,D', 'B,C', 'B,D', 'C,D', 'A,B,C', 'A,B,D', 'A,C,D', 'B,C,D', 'A,B,C,D'],
     'Support' : [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
 }
-
 for i, itemset in enumerate(table2['Itemset']):
     items = itemset.split(',')
-    print((table1[items] != 0).sum())
 
-    #support = sum(table1[items] != 0)
-
-
-#table2 = pd.DataFrame(table2)
+    support = (table1[items] != 0).all(axis = 1).mean()
+    table2['Support'][i] = support
+table2 = pd.DataFrame(table2)
