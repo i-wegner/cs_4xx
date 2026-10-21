@@ -1,5 +1,8 @@
 import pandas as pd
 from itertools import chain, combinations # packages required for most efficient powerset function
+import numpy as np
+
+# =============== Q3, Parts 1, 2, 3 ===============
 
 table1 = {
     'TID' : ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10'],
@@ -31,7 +34,9 @@ def support(table1, table2):
 
     table2['Support'] = support_list
 
-l = powerset('ABCD')
+
+power_string = "".join(table1.columns[1:])
+l = powerset(power_string)
 
 table2 = {
     'Itemset' : l,
@@ -39,5 +44,30 @@ table2 = {
 }
 table2 = pd.DataFrame(table2) # convert dictionary into dataframe for pandas capabilities
 support(table1, table2)
+#print(f'=== Itemset Table with Support Values ===\n {table2}\n')
 
 freq_itemsets = table2[table2['Support'] >= 0.2]
+#print(f'=== Itemset Table of Frequent Itemsets (minconf = 0.2) ===\n {freq_itemsets}\n')
+
+# ============ Q3, Parts 5, 6, 7, 8, 9 ============
+
+table3 = {
+    'TID' : ['T1', 'T2', 'T3', 'T4', 'T5'],
+    'A' : [1, 1, 1, 1, 1],
+    'B' : [1, 1, 0, 0, 1],
+    'C' : [1, 1, 1, 1, 1],
+    'D' : [0, 1, 1, 1, 1],
+    'E' : [0, 1, 0, 1, 0],
+    'F' : [1, 0, 0, 0, 0]
+}
+table3 = pd.DataFrame(table3)
+
+def apriori (table1):
+    power_string = "".join(table1.columns[1:])
+    l = list(power_string)
+    C_one = pd.DataFrame[l, np.zeros(len(l))]
+    print(C_one)
+
+
+apriori(table3)
+#print(type(table3['A']))
