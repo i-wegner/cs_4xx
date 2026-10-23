@@ -63,6 +63,8 @@ def candidateTable(L_prev, k):
                     list1 = L_prev['Itemset'].iloc[i]
                     list2 = list(L_prev['Itemset'].iloc[j][-1])
                     candidate_itemsets.append(list1 + list2)
+                    # N.T.I -> full pruning check
+                        # Starting from the last element, iterate through down to the first element and prune each ieteration
 
     C_k = pd.DataFrame({
         'Itemset' : candidate_itemsets,
