@@ -60,9 +60,8 @@ def candidateTable(L_prev, k):
         for i in range(len(L_prev)):
             for j in range(i + 1, len(L_prev)):
                 if L_prev['Itemset'].iloc[i][:-1] == L_prev['Itemset'].iloc[j][:-1]:
-                    list1 = L_prev['Itemset'].iloc[i][:]
+                    list1 = L_prev['Itemset'].iloc[i]
                     list2 = list(L_prev['Itemset'].iloc[j][-1])
-                    print(f'List1 = {list1}\nList2 = {list2}')
                     candidate_itemsets.append(list1 + list2)
 
     C_k = pd.DataFrame({
@@ -122,8 +121,9 @@ def apriori (table1, min_support = 0.4):
         C_k = candidateTable(L_prev, k)
         support(table1, C_k)
         L_prev = C_k[C_k['Support'] >= min_support]
-        print(f'C_k\n{C_k}\n\n')
-        print(f'L_k\n{L_prev}\n\n')
+        print(f'======= Pass #{k} =======')
+        print(f'C_{k}\t{C_k}\n\n')
+        print(f'L_{k}\t{L_prev}\n\n')
         k += 1
 
 apriori(table3)
