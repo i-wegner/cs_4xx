@@ -55,17 +55,22 @@ def candidateTable(L_prev, k):
     if k == 2:
         for i in range(len(L_prev)):
             for j in range(i + 1, len(L_prev)):
-                candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
+                candidate_itemsets.append(L_prev['Itemset'].iloc[i] + L_prev['Itemset'].iloc[j])
     else:
         for i in range(len(L_prev)):
             for j in range(i + 1, len(L_prev)):
-                if L_prev['Itemset'][i][:-1] == L_prev['Itemset'][j][:-1]:
-                    candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
+                if L_prev['Itemset'].iloc[i][:-1] == L_prev['Itemset'].iloc[j][:-1]:
+                    list1 = L_prev['Itemset'].iloc[i][:]
+                    list2 = list(L_prev['Itemset'].iloc[j][-1])
+                    print(f'List1 = {list1}\nList2 = {list2}')
+                    candidate_itemsets.append(list1 + list2)
 
-    
+    C_k = pd.DataFrame({
+        'Itemset' : candidate_itemsets,
+        'Support' : np.zeros(len(candidate_itemsets))
+    })
 
-    print(candidate_itemsets)
-    print(len(candidate_itemsets))
+    return C_k
 
 table2 = powersetTable(table1)
 support(table1, table2)
@@ -114,8 +119,11 @@ def apriori (table1, min_support = 0.4):
     k = 2
 
     while L_prev.empty != True:
-        candidateTable(L_prev, k)
-
-        break
+        C_k = candidateTable(L_prev, k)
+        support(table1, C_k)
+        L_prev = C_k[C_k['Support'] >= min_support]
+        print(f'C_k\n{C_k}\n\n')
+        print(f'L_k\n{L_prev}\n\n')
+        k += 1
 
 apriori(table3)
