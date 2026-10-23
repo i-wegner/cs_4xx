@@ -117,13 +117,23 @@ def apriori (table1, min_support = 0.4):
     L_prev = L_1
     k = 2
 
-    while L_prev.empty != True:
+    while not L_prev.empty:
         C_k = candidateTable(L_prev, k)
         support(table1, C_k)
         L_prev = C_k[C_k['Support'] >= min_support]
-        print(f'======= Pass #{k} =======')
-        print(f'C_{k}\t{C_k}\n\n')
-        print(f'L_{k}\t{L_prev}\n\n')
-        k += 1
+
+        if L_prev.empty:
+            print(f'***There are no further frequent itemsets to consider. Process complete after {k} iterations.***')
+            break
+        else:
+            print(f'\n{"=" * 15} Pass #{k} {"=" * 15}')
+            print(f'\nCandidate Itemsets (C_{k}):')
+            print(C_k.to_string(index=False))
+
+            print(f'\nFrequent Itemsets (L_{k}):')
+            print(L_prev.to_string(index=False))
+            print()
+
+            k += 1
 
 apriori(table3)
