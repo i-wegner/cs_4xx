@@ -90,3 +90,18 @@ def apriori (table1, min_support = 0.4):
             break
         frequent_itemsets.append(L_prev.copy())
         k += 1
+    return pd.concat(frequent_itemsets, ignore_index = True)
+
+table3 = {
+    'TID' : ['T1', 'T2', 'T3', 'T4', 'T5'],
+    'A' : [1, 1, 1, 1, 1],
+    'B' : [1, 1, 0, 0, 1],
+    'C' : [1, 1, 1, 1, 1],
+    'D' : [0, 1, 1, 1, 1],
+    'E' : [0, 1, 0, 1, 0],
+    'F' : [1, 0, 0, 0, 0]
+}
+table3 = pd.DataFrame(table3)
+
+freq = apriori(table3)
+print(freq)
