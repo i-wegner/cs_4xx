@@ -5,6 +5,7 @@ import math
 
 # =============== Q3, Parts 1, 2, 3 ===============
 
+# Table 1 from 05-1 handout
 table1 = {
     'TID' : ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10'],
     'A' : [1, 0, 1, 0, 0, 0, 0, 4, 0, 0],
@@ -27,6 +28,7 @@ def powerSet(set):
     return l
 
 # support function to compute support value for every itemset and update in table 'support' column
+# modify table2 in place with updated support values. no return value
 def support(table1, table2):
     support_list = []
 
@@ -36,23 +38,43 @@ def support(table1, table2):
 
     table2['Support'] = support_list
 
+# powersetTable function is only useful for generating Table 2 from 05-1 handout. 
+def powersetTable(table1):
+    power_string = "".join(table1.columns[1:])
+    items = powerSet(power_string)
 
-power_string = "".join(table1.columns[1:])
-l = powerSet(power_string)
+    table2 = {
+        'Itemset' : items,
+        'Support' : np.zeros(len(items))
+    }
+    table2 = pd.DataFrame(table2) # convert dictionary into dataframe for pandas capabilities
+    return table2
 
-table2 = {
-    'Itemset' : l,
-    'Support' : np.zeros(len(l))
-}
-table2 = pd.DataFrame(table2) # convert dictionary into dataframe for pandas capabilities
+def candidateTable(L_prev, k):
+    candidate_itemsets = []
+    if k == 2:
+        for i in range(len(L_prev.columns)):
+            for j in range(i + 1, len(L_prev.columns) + 1):
+                candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
+    else:
+        for i in range(len(L_prev.columns)):
+            for j in range(i + 1, len(L_prev.columns) + 1):
+                if L_prev['Itemset'][i][:-1] == L_prev['Itemset'][j][:-1]:
+                    candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
+
+    print(candidate_itemsets)
+
+table2 = powersetTable(table1)
 support(table1, table2)
 #print(f'=== Itemset Table with Support Values ===\n {table2}\n')
 
 freq_itemsets = table2[table2['Support'] >= 0.2]
 #print(f'=== Itemset Table of Frequent Itemsets (minconf = 0.2) ===\n {freq_itemsets}\n')
 
+
 # ============ Q3, Parts 5, 6, 7, 8, 9 ============
 
+# Table 3 from 05-1 handout
 table3 = {
     'TID' : ['T1', 'T2', 'T3', 'T4', 'T5'],
     'A' : [1, 1, 1, 1, 1],
@@ -64,16 +86,32 @@ table3 = {
 }
 table3 = pd.DataFrame(table3)
 
-def apriori (table1):
-    power_string = "".join(table1.columns[1:])
-    l = list(power_string)
-    stop_slice = math.comb(len(l), 1) + math.comb(len(l), 2) + math.comb(len(l), 3) + math.comb(len(l), 4)
-    start_slice = math.comb(len(l), 1) + math.comb(len(l), 2)
-    candidate_1 = powerSet(l)[start_slice + 1:stop_slice]
-    print(candidate_1)
+def apriori (table1, min_support = 0.4):
+# pass 1
+    #1.
+    items = [[item] for item in table1.columns[1:]]
+    C_1 = pd.DataFrame({
+        'Itemset' : items,
+        'Support' : np.zeros(len(items))
+    })
 
-    # Possible method for candidate itemsets
+    
+    #2.
+    support(table1, C_1)
 
+    #3.
+    L_1 = C_1[C_1['Support'] >= min_support]
+
+    # display C_1 and L_1 for the purpose of following the algorithm as it iterates
+    print(f'============ Candidate Itemset (C_1) ============\n {C_1}\n')
+    print(f'==== Frequent Itemset (L_1, support >= {min_support}) ====\n {L_1}\n')
+
+# pass [2, k]
+    L_prev = L_1
+    k = 2
+    candidateTable(L_prev, k)
+    """ while L_prev.empty != True:
+
+        break """
 
 apriori(table3)
-#print(type(table3['A']))
