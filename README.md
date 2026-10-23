@@ -60,3 +60,7 @@ Question 3 - Materials Referenced:
 
 Powerset function: \
 https://stackoverflow.com/questions/1482308/how-to-get-all-subsets-of-a-set-powerset \
+Pandas dataframe.empty(): \
+https://www.geeksforgeeks.org/python/python-pandas-dataframe-empty/ \
+List Comprehension: \
+https://www.w3schools.com/python/python_lists_comprehension.asp \
