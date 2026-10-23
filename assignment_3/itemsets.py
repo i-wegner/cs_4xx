@@ -53,16 +53,19 @@ def powersetTable(table1):
 def candidateTable(L_prev, k):
     candidate_itemsets = []
     if k == 2:
-        for i in range(len(L_prev.columns)):
-            for j in range(i + 1, len(L_prev.columns) + 1):
+        for i in range(len(L_prev)):
+            for j in range(i + 1, len(L_prev)):
                 candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
     else:
-        for i in range(len(L_prev.columns)):
-            for j in range(i + 1, len(L_prev.columns) + 1):
+        for i in range(len(L_prev)):
+            for j in range(i + 1, len(L_prev)):
                 if L_prev['Itemset'][i][:-1] == L_prev['Itemset'][j][:-1]:
                     candidate_itemsets.append(L_prev['Itemset'][i] + L_prev['Itemset'][j])
 
+    
+
     print(candidate_itemsets)
+    print(len(candidate_itemsets))
 
 table2 = powersetTable(table1)
 support(table1, table2)
@@ -109,9 +112,10 @@ def apriori (table1, min_support = 0.4):
 # pass [2, k]
     L_prev = L_1
     k = 2
-    candidateTable(L_prev, k)
-    """ while L_prev.empty != True:
 
-        break """
+    while L_prev.empty != True:
+        candidateTable(L_prev, k)
+
+        break
 
 apriori(table3)
