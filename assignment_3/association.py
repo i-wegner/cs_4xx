@@ -103,5 +103,27 @@ table3 = {
 }
 table3 = pd.DataFrame(table3)
 
-freq = apriori(table3)
-print(freq)
+def associatoneRules(table1, frequent_itemsets, min_conf = 0.6):
+    rules = []
+
+    for i, row in frequent_itemsets.iterrows():
+        itemset = row['Itemset']
+
+        if len(itemset) < 2:
+            continue
+
+        itemset_support = row['Support']
+
+        for r in range(1, len(itemset)):
+            for antecedent in combinations(itemset, r):
+                antecedent = list(antecedent)
+
+                consequent = [
+                    item for item in itemset
+                    if item not in antecedent
+                ]
+
+                supp = (table1[antecedent] != 0).all(axis = 1).mean()
+
+
+    pass
