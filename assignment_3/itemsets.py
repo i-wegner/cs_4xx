@@ -1,7 +1,6 @@
 import pandas as pd
 from itertools import chain, combinations # packages required for most efficient powerset function
 import numpy as np
-import math
 
 # =============== Q3, Parts 1, 2, 3 ===============
 
