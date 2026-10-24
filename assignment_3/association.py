@@ -13,18 +13,6 @@ def support(table1, table2):
 
     table2['Support'] = support_list
 
-# powersetTable function is only useful for generating Table 2 from 05-1 handout. 
-def powersetTable(table1):
-    power_string = "".join(table1.columns[1:])
-    items = powerSet(power_string)
-
-    table2 = {
-        'Itemset' : items,
-        'Support' : np.zeros(len(items))
-    }
-    table2 = pd.DataFrame(table2) # convert dictionary into dataframe for pandas capabilities
-    return table2
-
 def candidateTable(L_prev, k):
     candidate_itemsets = []
     if k == 2:
