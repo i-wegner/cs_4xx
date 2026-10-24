@@ -64,3 +64,8 @@ Pandas dataframe.empty(): \
 https://www.geeksforgeeks.org/python/python-pandas-dataframe-empty/ \
 List Comprehension: \
 https://www.w3schools.com/python/python_lists_comprehension.asp \
+
+Question 4 - Materials Referenced:
+
+pd.dataframe iterate rows: \
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html
