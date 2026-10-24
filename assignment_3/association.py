@@ -2,24 +2,6 @@ import pandas as pd
 import numpy as np
 from itertools import chain, combinations
 
-def support(itemsetX, itemsetY):
-    # transactions containing X & Y / total transactions
-    pass
-
-def confidence(itemsetX, itemsetY):
-    # support(X U Y) / support(X)
-    pass
-
-def powerSet(set):
-    s = list(set)
-    l = []
-    power_set = list(chain.from_iterable(combinations(s, r) for r in range(1, len(s) + 1)))
-
-    for i in range(len(power_set)):
-        l.insert(i, list(power_set[i]))
-
-    return l
-
 # support function to compute support value for every itemset and update in table 'support' column
 # modify table2 in place with updated support values. no return value
 def support(table1, table2):
@@ -124,6 +106,17 @@ def associatoneRules(table1, frequent_itemsets, min_conf = 0.6):
                 ]
 
                 supp = (table1[antecedent] != 0).all(axis = 1).mean()
+                confidence = itemset_support / supp
 
+                if confidence >= min_conf:
+                    rules.append({
+                        'Antecedent' : antecedent,
+                        'Consequent' : consequent,
+                        'Support' : itemset_support,
+                        'Confidence' : confidence
+                    })
+    return pd.DataFrame(rules)
 
-    pass
+frequent_itemsets = apriori(table3)
+table4 = associatoneRules(table3, frequent_itemsets)
+print(table4)
