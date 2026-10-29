@@ -1,0 +1,26 @@
+MedianWage,Ranking,NumberOfEmployees,MentalHealthSupport,Industry
+19.4,1,10938,0,Agriculture
+22.7,1,298,0,Agriculture
+22.6,2,200,0,Agriculture
+24.9,4,33,0,Agriculture
+25.3,5,20,1,Agriculture
+28.1,1,13359,0,Finance
+35.8,4,298,1,Finance
+38.2,3,12088,1,Finance
+40.9,2,22026,0,Finance
+47.7,5,13,1,Finance
+16.7,3,2208,1,Food Service
+17,1,492,0,Food Service
+17.9,2,99,0,Food Service
+19.9,2,18,0,Food Service
+20.7,4,13,0,Food Service
+36,2,544,0,Forestry
+41,1,1998,0,Forestry
+44.2,5,66,1,Forestry
+47,4,270,1,Forestry
+51.6,4,16,0,Forestry
+26.6,1,270456,0,Manufacturing
+29.3,3,992,1,Manufacturing
+29.6,2,148,0,Manufacturing
+32.1,2,7331,0,Manufacturing
+31.3,4,20,0,Manufacturing
