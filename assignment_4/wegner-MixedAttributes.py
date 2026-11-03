@@ -3,6 +3,18 @@ import pandas as pd
 
 df = pd.read_csv('mixed_data.csv')
 
+def normalize_variable(series): # normalize linear attributes(s)
+    s_min = series.min()
+    s_max = series.max()
+
+    if s_min == s_max:
+        return series * 0
+
+    else:
+        series = (series - s_min) / (s_max - s_min)
+
+    return series
+
 def rank_transform(series): # rank transformation and normilization for nonlinear attribute(s)
     series = series.rank(method = 'dense')
     s_min = series.min()
@@ -16,14 +28,8 @@ def rank_transform(series): # rank transformation and normilization for nonlinea
 
     return series
 
-def normalize_variable(series): # normalize linear variable(s)
-    s_min = series.min()
-    s_max = series.max()
+df['MedianWage'] = normalize_variable(df['MedianWage'])
+df['Ranking'] = normalize_variable(df['Ranking'])
+df['NumberOfEmployees'] = rank_transform(df['NumberOfEmployees'])
 
-    if s_min == s_max:
-        return series * 0
-
-    else:
-        series = (series - s_min) / (s_max - s_min)
-
-    return series
+print(df)
