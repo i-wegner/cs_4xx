@@ -40,19 +40,10 @@ attribute_types = ['linear',
 
 def mixed_dissimilarity(object1, object2, attribute_types):
     numerator = 0
-    denominator = 0
     distance = []
     delta = []
     for i, item in enumerate(attribute_types):
-        if item == 'linear':
-            distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
-            delta.append(1)
-
-        elif item == 'ordinal':
-            distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
-            delta.append(1)
-
-        elif item == 'nonlinear':
+        if item in ['linear', 'ordinal', 'nonlinear']:
             distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
             delta.append(1)
 
@@ -77,14 +68,27 @@ def mixed_dissimilarity(object1, object2, attribute_types):
             else:
                 distance.append(1)
                 delta.append(1)
-    
-    
-    print(distance)
-    print(len(distance))
-    print(delta)
-    print(len(delta))
 
-mixed_dissimilarity(df.loc[0], df.loc[4], attribute_types)
+        numerator += delta[i] * distance[i]
+
+    denominator = sum(delta)
+    object_distance = numerator / denominator
+
+    return object_distance
+
+def dissimilarityMatrix(df):
+    n = len(df)
+    dissimilarity_matrix = pd.DataFrame(np.zeros((n, n)))
+    for i in range(n):
+        for j in range(i + 1, n):
+            object1 = df.loc[i]
+            object2 = df.loc[j]
+
+            distance = mixed_dissimilarity(object1, object2, attribute_types)
+            dissimilarity_matrix.iloc[i, j] = distance
+            dissimilarity_matrix.iloc[j, i] = distance
+    
+    return dissimilarity_matrix
 
 
 """ Write a function named mixed_dissimilarity to find the dissimilarity between
