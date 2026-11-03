@@ -25,10 +25,18 @@ def AGNES(D):
 
     while len(K) > 1:
         abs_min, x = minDistance(D)
+        row = x[0]
+        col = x[1]
 
-        D[D.iloc[x] == abs_min] = 0.00
-        K.update({c : [K[x[0]], K[x[1]]]})
-        del K[x[0]], K[x[1]]
+        D[D.iloc[x[:2]] == abs_min] = 0.00
+
+        value_one = x[0]
+        value_two = int(x[1])
+        key_one = next((k for k, v in K.items() if v == value_one), None)
+        key_two = next((k for k, v in K.items() if v == value_two), None)
+
+        K.update({c : [K[key_one], K[key_two]]})
+        del K[key_one], K[key_two]
         c = c + 1
 
     return K
@@ -36,3 +44,5 @@ def AGNES(D):
 K = AGNES(df)
 print(K)
 print(df)
+
+# breaks when multiple minimum instances occur
