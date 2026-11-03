@@ -9,7 +9,7 @@ def rank_transform(series): # rank transformation and normilization for nonlinea
     s_max = series.max()
 
     if s_min == s_max:
-        return series
+        return series * 0
 
     else:
         series = (series - s_min) / (s_max - s_min)
@@ -21,7 +21,7 @@ def normalize_variable(series): # normalize linear variable(s)
     s_max = series.max()
 
     if s_min == s_max:
-        return series
+        return series * 0
 
     else:
         series = (series - s_min) / (s_max - s_min)
