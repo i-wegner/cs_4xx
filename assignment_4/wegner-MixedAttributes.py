@@ -9,8 +9,11 @@ def rank_transform(df): # rank transformation and normilization for nonlinear at
     s_min = num_emp.min()
     s_max = num_emp.max()
 
-    for i in range(len(num_emp)):
-        num_emp[i] = (num_emp[i] - s_min) / (s_max - s_min)
+    if s_min == s_max:
+        return
+
+    else:
+        num_emp = (num_emp - s_min) / (s_max - s_min)
 
     df['NumberOfEmployees'] = num_emp
 
@@ -22,9 +25,8 @@ def normalize_variable(df): # normalize linear variable(s)
     min_wage = wage.min()
     max_wage = wage.max()
 
-    for i in range(len(df)):
-        ranking[i] = (ranking[i] - 1) / (h - 1)
-        wage[i] = (wage[i] - min_wage) / (max_wage - min_wage)
+    ranking = (ranking - 1) / (h - 1)
+    wage = (wage - min_wage) / (max_wage - min_wage)
 
     df['Ranking'] = ranking
     df['MedianWage'] = wage
