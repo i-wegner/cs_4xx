@@ -32,4 +32,71 @@ df['MedianWage'] = normalize_variable(df['MedianWage'])
 df['Ranking'] = normalize_variable(df['Ranking'])
 df['NumberOfEmployees'] = rank_transform(df['NumberOfEmployees'])
 
-print(df)
+attribute_types = ['linear',
+                   'ordinal',
+                   'nonlinear',
+                   'asymmetric binary',
+                   'nominal']
+
+def mixed_dissimilarity(object1, object2, attribute_types):
+    numerator = 0
+    denominator = 0
+    distance = []
+    delta = []
+    for i, item in enumerate(attribute_types):
+        if item == 'linear':
+            distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
+            delta.append(1)
+
+        elif item == 'ordinal':
+            distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
+            delta.append(1)
+
+        elif item == 'nonlinear':
+            distance.append(np.abs(object1.iloc[i] - object2.iloc[i]))
+            delta.append(1)
+
+        elif item == 'nominal':
+            if object1.iloc[i] != object2.iloc[i]:
+                distance.append(1)
+            else:
+                distance.append(0)
+            delta.append(1)
+
+        elif item == 'symmetric binary':
+            if object1.iloc[i] != object2.iloc[i]:
+                distance.append(1)
+            else:
+                distance.append(0)
+            delta.append(1)
+
+        elif item == 'asymmetric binary':
+            if object1.iloc[i] == 0 and object2.iloc[i] == 0:
+                distance.append(0)
+                delta.append(0)
+            else:
+                distance.append(1)
+                delta.append(1)
+    
+    
+    print(distance)
+    print(len(distance))
+    print(delta)
+    print(len(delta))
+
+mixed_dissimilarity(df.loc[0], df.loc[4], attribute_types)
+
+
+""" Write a function named mixed_dissimilarity to find the dissimilarity between
+any pair of objects, following the method for mixed attribute types at the bottom of
+Section 06-2 of the notes.
+ The function should accept three arguments: two objects which have some number
+of attributes (e.g., two rows of a pandas DataFrame), and a list or array of strings
+indicating the type of each attribute in the dataset, in order.
+ The attribute types should be used to determine how to incorporate the distance for
+each attribute. The function should distinguish between symmetric binary and
+asymmetric binary attributes and treat them accordingly.
+ The function is not required to account for missing values (assume there will be no
+missing values).
+ The function should assume that all variables that can be normalized have already
+been normalized. """
