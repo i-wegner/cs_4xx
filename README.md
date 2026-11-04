@@ -18,7 +18,8 @@ https://dev.to/therenegadecoder/how-to-perform-a-reverse-dictionary-lookup-in-py
 https://stackoverflow.com/questions/2568673/inverse-dictionary-lookup-in-python
 
 2d List: \
-How to create a multidimensional list: https://docs.python.org/3/faq/programming.html?utm_source=chatgpt.com#id49 \
+How to create a multidimensional list: \
+https://docs.python.org/3/faq/programming.html?utm_source=chatgpt.com#id49 \
 https://www.w3schools.com/python/python_lists_comprehension.asp
 https://www.geeksforgeeks.org/python/python-using-2d-arrays-lists-the-right-way/
 https://www.geeksforgeeks.org/python/slice-a-2d-list-in-python/
@@ -75,8 +76,10 @@ https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html
 Question 3 - Materials Referenced:
 
 Pandas standard deviation: \
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html?utm_source=chatgpt.com \
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html \
 
 Question 4 - Materials Referenced: \
-sklearn.metrics.adjusted_rand_score: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html \
-pandas.sort_values(): https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html
+sklearn.metrics.adjusted_rand_score: \
+https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html \
+pandas.sort_values(): \
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html
