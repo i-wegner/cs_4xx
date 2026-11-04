@@ -68,4 +68,12 @@ https://www.w3schools.com/python/python_lists_comprehension.asp \
 Question 4 - Materials Referenced:
 
 pd.dataframe iterate rows: \
-https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html \
+
+## A4:
+
+Question 3 - Materials Referenced:
+
+Pandas standard deviation: \
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html?utm_source=chatgpt.com \
+
