@@ -1,0 +1,11 @@
+================= Model Rankings =================
+
+DBSCAN (eps = 0.05) ARI Score: 0.9054204175929581
+Agglomerative (n_clusters = 4) ARI Score: 0.810638964265718
+Agglomerative (n_clusters = 5) ARI Score: 0.7330372867938115
+KMeans (n_clusters = 5) ARI Score: 0.6639759712437616
+Agglomerative (n_clusters = 3) ARI Score: 0.6396799984224781
+KMeans (n_clusters = 3) ARI Score: 0.4861797217661666
+KMeans (n_clusters = 4) ARI Score: 0.4634506734197279
+DBSCAN (eps = 0.1) ARI Score: 0.0018264427711971035
+DBSCAN (eps = 0.01) ARI Score: -0.005848141381895747

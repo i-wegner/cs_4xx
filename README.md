@@ -77,3 +77,6 @@ Question 3 - Materials Referenced:
 Pandas standard deviation: \
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html?utm_source=chatgpt.com \
 
+Question 4 - Materials Referenced: \
+sklearn.metrics.adjusted_rand_score: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html \
+pandas.sort_values(): https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html
