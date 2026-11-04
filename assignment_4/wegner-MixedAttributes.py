@@ -90,44 +90,22 @@ def dissimilarityMatrix(df):
     
     return dissimilarity_matrix
 
-mat = dissimilarityMatrix(df)
+dissimilarity_matrix = dissimilarityMatrix(df)
 
-total = [0] * len(df)
-for i in range(len(df)):
-    total[i] = sum(mat[i])
+def medoid_cost(dissimilarity_matrix, df):
+    cost_list = [0] * len(df)
+    for i in range(len(df)):
+        cost_list[i] = sum(dissimilarity_matrix[i])
 
-min_ = min(total)
-minimum = 100000
-idx = total.index(min(total))
-for i, object in enumerate(total):
-    if object < minimum:
-        min_index = i
-        minimum = object
+    total_medoid_cost = sum(cost_list)
+    min_index = cost_list.index(min(cost_list))
+    ave_medoid_cost = sum(cost_list) / (len(cost_list) - 1)
+    
+    return total_medoid_cost, min_index, ave_medoid_cost
 
-print(min_index, minimum)
-print(idx, min_)
+total_medoid_cost, min_index, ave_medoid_cost = medoid_cost(dissimilarity_matrix, df)
 
-
-"""
-tree_text = tree.export_text(dtree1, feature_names = ['Elevation', 'Precipitation'])
-with open('wegner-first-tree.txt', 'w') as f:
-    print(tree_text, file = f)
-    print(f'Total number of nodes: {dtree1.tree_.node_count}', file = f)
-    print(f'Maximum depth: {dtree1.tree_.max_depth}', file = f)
-    print(f'Minimum node size: {min(dtree1.tree_.n_node_samples)}', file = f)
-    impurity = 0
-    for i in range(dtree1.tree_.node_count):
-        if dtree1.tree_.feature[i] == -2:
-            impurity += dtree1.tree_.impurity[i]
-    ave_leaf_impurity = impurity / dtree1.get_n_leaves()
-    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
-        # Consider that the tree is unrestricted (it is split until the training data is perfectly classified),
-        # thus we end up with 0.0
-    print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
-
-y_pred = dtree1.predict(X_test)
-risk_matrix = ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
-
-risk_matrix.figure_.savefig('wegner-confusion-matrix.png')
-plt.show()
-"""
+with open('wegner-medoid.txt', 'w') as file:
+    file.write(f'Medoid index: {min_index}\n')
+    file.write(f'Total medoid cost: {total_medoid_cost}\n')
+    file.write(f'Average medoid cost: {ave_medoid_cost}')

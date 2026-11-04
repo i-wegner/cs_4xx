@@ -1,0 +1,3 @@
+Medoid index: 22
+Total medoid cost: 324.60175330877337
+Average medoid cost: 13.525073054532223
