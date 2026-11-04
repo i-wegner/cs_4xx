@@ -94,14 +94,15 @@ dissimilarity_matrix = dissimilarityMatrix(df)
 
 def medoid_cost(dissimilarity_matrix, df):
     cost_list = [0] * len(df)
+
     for i in range(len(df)):
         cost_list[i] = sum(dissimilarity_matrix[i])
 
-    total_medoid_cost = sum(cost_list)
     min_index = cost_list.index(min(cost_list))
-    ave_medoid_cost = sum(cost_list) / (len(cost_list) - 1)
+    total_medoid_cost = cost_list[min_index]
+    ave_medoid_cost = total_medoid_cost / (len(cost_list) - 1)
     
-    return total_medoid_cost, min_index, ave_medoid_cost
+    return min_index, total_medoid_cost, ave_medoid_cost
 
 total_medoid_cost, min_index, ave_medoid_cost = medoid_cost(dissimilarity_matrix, df)
 
