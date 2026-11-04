@@ -90,17 +90,44 @@ def dissimilarityMatrix(df):
     
     return dissimilarity_matrix
 
+mat = dissimilarityMatrix(df)
 
-""" Write a function named mixed_dissimilarity to find the dissimilarity between
-any pair of objects, following the method for mixed attribute types at the bottom of
-Section 06-2 of the notes.
- The function should accept three arguments: two objects which have some number
-of attributes (e.g., two rows of a pandas DataFrame), and a list or array of strings
-indicating the type of each attribute in the dataset, in order.
- The attribute types should be used to determine how to incorporate the distance for
-each attribute. The function should distinguish between symmetric binary and
-asymmetric binary attributes and treat them accordingly.
- The function is not required to account for missing values (assume there will be no
-missing values).
- The function should assume that all variables that can be normalized have already
-been normalized. """
+total = [0] * len(df)
+for i in range(len(df)):
+    total[i] = sum(mat[i])
+
+min_ = min(total)
+minimum = 100000
+idx = total.index(min(total))
+for i, object in enumerate(total):
+    if object < minimum:
+        min_index = i
+        minimum = object
+
+print(min_index, minimum)
+print(idx, min_)
+
+
+"""
+tree_text = tree.export_text(dtree1, feature_names = ['Elevation', 'Precipitation'])
+with open('wegner-first-tree.txt', 'w') as f:
+    print(tree_text, file = f)
+    print(f'Total number of nodes: {dtree1.tree_.node_count}', file = f)
+    print(f'Maximum depth: {dtree1.tree_.max_depth}', file = f)
+    print(f'Minimum node size: {min(dtree1.tree_.n_node_samples)}', file = f)
+    impurity = 0
+    for i in range(dtree1.tree_.node_count):
+        if dtree1.tree_.feature[i] == -2:
+            impurity += dtree1.tree_.impurity[i]
+    ave_leaf_impurity = impurity / dtree1.get_n_leaves()
+    print(f'Average impurity of leaves: {ave_leaf_impurity}', file = f)
+        # Consider that the tree is unrestricted (it is split until the training data is perfectly classified),
+        # thus we end up with 0.0
+    print(f'Accuracy score: {dtree1.score(X_test, y_test)}', file = f)
+
+y_pred = dtree1.predict(X_test)
+risk_matrix = ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
+
+risk_matrix.figure_.savefig('wegner-confusion-matrix.png')
+plt.show()
+"""
