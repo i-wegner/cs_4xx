@@ -13,7 +13,7 @@ https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html
 Pandas Series: \
 https://pandas.pydata.org/docs/reference/api/pandas.Series.values.html
 
-Inverse Dictionary Search: \ 
+Inverse Dictionary Search: \
 https://dev.to/therenegadecoder/how-to-perform-a-reverse-dictionary-lookup-in-python-generator-expressions-and-more-6nk
 https://stackoverflow.com/questions/2568673/inverse-dictionary-lookup-in-python
 
@@ -39,20 +39,20 @@ Question 1 - Materials Referenced:
 Numpy Array: \
 Convert all negatives to 0: https://www.geeksforgeeks.org/python/python-replace-negative-value-with-zero-in-numpy-array/ \
 Boolean masking for to minimize loops: https://numpy.org/doc/stable/user/basics.indexing.html#boolean-array-indexing \
-np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html \
+np.select to minimize loops: https://numpy.org/doc/stable/reference/generated/numpy.select.html
 
 Question 2 - Materials Referenced:
 
 Confusion matrix: \
 https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html#sklearn.metrics.ConfusionMatrixDisplay.from_predictions \
-Number of leaves: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier.get_n_leaves \
+Number of leaves: https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier.get_n_leaves
 
 Question 3 - Materials Referenced:
 
 Cross Validation Score: \
 Notes 03-6: Overfitting
 Enumerate(): \
-https://www.geeksforgeeks.org/python/enumerate-in-python/ \
+https://www.geeksforgeeks.org/python/enumerate-in-python/
 
 ## A3:
 
@@ -63,12 +63,12 @@ https://stackoverflow.com/questions/1482308/how-to-get-all-subsets-of-a-set-powe
 Pandas dataframe.empty(): \
 https://www.geeksforgeeks.org/python/python-pandas-dataframe-empty/ \
 List Comprehension: \
-https://www.w3schools.com/python/python_lists_comprehension.asp \
+https://www.w3schools.com/python/python_lists_comprehension.asp
 
 Question 4 - Materials Referenced:
 
 pd.dataframe iterate rows: \
-https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html \
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html
 
 ## A4:
 
